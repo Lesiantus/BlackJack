@@ -6,16 +6,9 @@ class Gamer < User
     validate!
   end
 
-  def valid?
-    validate!
-  rescue
-    false
-  end
-
   protected
 
   def validate!
-    raise 'Введите имя игрока, имя не может быть пустым' if name.nil?
     if name !~ NAME_FORMAT
       raise 'неподдерживаемый формат имени введите другое'
     end

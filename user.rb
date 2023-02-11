@@ -1,5 +1,5 @@
 class User
-  attr_reader :name, :bank
+  attr_reader :name, :bank, :cards
   def initialize(name)
     @name = name
     @cards = []
@@ -7,11 +7,13 @@ class User
   end
 
   def bet
-    @bank-=10
+    @bank -= 10
   end
 
   def win
-    @bank+=20
+    @bank += 20
   end
+
+  def points
 
 end

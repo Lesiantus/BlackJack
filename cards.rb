@@ -8,7 +8,8 @@ class Cards
   end
 
   def take_card
-    @deck.shift
+    a=[]
+    p a << @deck.shift
   end
 
   def self.numerized_deck
