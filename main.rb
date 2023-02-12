@@ -42,8 +42,11 @@ class Main
     @dealer.cards << @deck.take_card
     @gamer.bet
     @dealer.bet
-    puts "Ваши карты: #{@gamer.cards}"
-    puts "#{@gamer.total}"
+    puts "Ваши карты: #{@gamer.string_view}"
+    if @gamer.total == 21 || @dealer.total == 21
+      puts "Блэк Джэк!"
+    else puts "#{@gamer.total} ваша сумма баллов"
+    end
     puts "Карты дилера: * * "
     puts @gamer.bank
   end

@@ -27,4 +27,13 @@ class User
     total
   end
 
+  def string_view
+    a = ''
+    @cards.each do |card|
+      a += "#{card.suit} #{card.num}"
+  end
+  a
+  end
+
+
 end
