@@ -1,9 +1,10 @@
 class User
-  attr_reader :name, :bank, :cards
+  attr_accessor :name, :bank, :cards
   def initialize(name)
     @name = name
     @cards = []
     @bank = 100
+    @total = total
   end
 
   def bet
@@ -18,14 +19,12 @@ class User
     @bank += 20
   end
 
-  def points
-    @cards_value = 0
-    hand = @cards.map(&:chop)
-    hand.each do |card|
-      @cards_value += card.to_i
+  def total
+    total = 0
+    @cards.each do |a|
+      total += a.value
     end
+    total
   end
-
-
 
 end

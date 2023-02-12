@@ -3,6 +3,7 @@ class Cards
   NUMBERS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'].freeze
   SUITS = ["\u2664", "\u2661", "\u2662", "\u2667"].freeze
 
+  attr_accessor :deck
 
   def initialize
     @deck = self.class.numerized_deck
@@ -11,6 +12,7 @@ class Cards
   def take_card
     @deck.shift
   end
+
 
   def self.numerized_deck
     @numerized_deck ||= begin

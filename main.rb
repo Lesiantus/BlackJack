@@ -2,6 +2,7 @@ require_relative 'user'
 require_relative 'admin'
 require_relative 'gamer'
 require_relative 'cards'
+require_relative 'card'
 
 
 class Main
@@ -42,9 +43,11 @@ class Main
     @gamer.bet
     @dealer.bet
     puts "Ваши карты: #{@gamer.cards}"
+    puts "#{@gamer.total}"
     puts "Карты дилера: * * "
     puts @gamer.bank
   end
+
 
   def next_menu
   end
