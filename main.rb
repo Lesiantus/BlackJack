@@ -37,8 +37,8 @@ class Main
     @dealer.cards << @deck.take_card
     @gamer.bet
     @dealer.bet
-    puts @gamer.bank.to_s
-    puts @dealer.bank.to_s
+    puts " У вас в банке: #{@gamer.bank}"
+    puts " У дилера в банке #{@dealer.bank}"
     puts "Ваши карты: #{@gamer.string_view}"
     if @gamer.total == 21 || @dealer.total == 21
       puts 'Блэк Джэк!'
@@ -47,8 +47,6 @@ class Main
       puts "#{@gamer.total} ваша сумма баллов"
       next_menu
     end
-    puts 'Карты дилера: * * '
-    puts @gamer.bank
   end
 
   def again
@@ -59,6 +57,8 @@ class Main
     )
     loop do
       input = $stdin.gets.chomp.to_i
+      raise 'Продолжить или закончить можно только нажав клавишу 1 или 2!' unless [1, 2].include?(input)
+
       case input
       when 1
         @gamer.cards.clear
@@ -67,8 +67,10 @@ class Main
         break
       when 2
         break
-      else 'Введите 1 или 2'
       end
+    rescue RuntimeError => e
+      puts e.message
+      retry
     end
   end
 
@@ -118,6 +120,8 @@ class Main
     )
     loop do
       input = $stdin.gets.chomp.to_i
+      raise 'Варианты только 1, 2 и 3!' unless [1, 2, 3].include?(input)
+
       case input
       when 1
         dealer_turn
@@ -129,9 +133,10 @@ class Main
       when 3
         dealer_turn
         break
-      else
-        puts ' Можно вводить только цифры от 1 до 3-ки'
       end
+    rescue RuntimeError => e
+      puts e.message
+      retry
     end
     count
   end
