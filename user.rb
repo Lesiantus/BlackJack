@@ -7,7 +7,11 @@ class User
   end
 
   def bet
-    @bank -= 10
+    if @bank >= 10
+      @bank -= 10
+    else
+      puts "у вас закончились деньги"
+    end
   end
 
   def win
@@ -15,5 +19,13 @@ class User
   end
 
   def points
+    @cards_value = 0
+    hand = @cards.map(&:chop)
+    hand.each do |card|
+      @cards_value += card.to_i
+    end
+  end
+
+
 
 end

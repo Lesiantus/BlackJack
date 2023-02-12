@@ -15,41 +15,20 @@ class Main
   end
 
   def start
-    loop do
-      show_menu
-      choice = input_choice
-      action(choice)
-      break if @choice.zero?
-    end
+    name_input
   end
 
-  def show_menu
-     puts %(
-    1 Введите свое имя:
-    2 сделать ставку, начать раздачу карт
-    3
-    )
-  end
 
   def input_choice
     puts 'Введите номер операции'
     @choice = $stdin.gets.chomp.to_i
   end
 
-  def action(_choice)
-    case @choice
-    when 1
-      name_input
-    when 2
-      start_game
-    when 3
-    end
-  end
-
   def name_input
     puts 'Введите свое имя, не оставляйте незаполненным'
     inp = $stdin.gets.chomp
     @gamer = Gamer.new(inp)
+    start_game
   rescue RuntimeError => e
     puts e.message
     retry
@@ -65,10 +44,11 @@ class Main
     puts "Ваши карты: #{@gamer.cards}"
     puts "Карты дилера: * * "
     puts @gamer.bank
-    next_menu
   end
 
   def next_menu
+  end
+
 
 
 end
