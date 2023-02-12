@@ -15,8 +15,8 @@ class User
     end
   end
 
-  def win
-    @bank += 20
+  def win(value)
+    @bank += value
   end
 
   def total
