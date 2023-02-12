@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class User
-  attr_accessor :name, :bank, :cards
+  attr_reader :name, :bank, :cards
+
   def initialize(name)
     @name = name
     @cards = []
@@ -11,7 +14,7 @@ class User
     if @bank >= 10
       @bank -= 10
     else
-      puts "у вас закончились деньги"
+      puts 'у вас закончились деньги'
     end
   end
 
@@ -31,9 +34,7 @@ class User
     a = ''
     @cards.each do |card|
       a += "#{card.suit} #{card.num}"
+    end
+    a
   end
-  a
-  end
-
-
 end

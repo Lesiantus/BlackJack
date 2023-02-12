@@ -1,6 +1,6 @@
 require_relative 'user'
 class Gamer < User
-  NAME_FORMAT = /^[a-zа-я0-9]{1,20} ?[a-zа-я0-9]{1,20}$/i
+  NAME_FORMAT = /^[a-zа-я0-9]{1,20} ?[a-zа-я0-9]{1,20}$/i.freeze
   def initialize(name)
     super
     validate!
@@ -9,12 +9,8 @@ class Gamer < User
   protected
 
   def validate!
-    if name !~ NAME_FORMAT
-      raise 'неподдерживаемый формат имени введите другое'
-    end
+    raise 'неподдерживаемый формат имени введите другое' if name !~ NAME_FORMAT
 
     true
   end
 end
-
-

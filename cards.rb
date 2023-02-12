@@ -13,22 +13,20 @@ class Cards
     @deck.shift
   end
 
-
   def self.numerized_deck
     @numerized_deck ||= begin
       deck = []
       NUMBERS.each do |num|
-        if num.instance_of?(Integer)
-          value = num
-        elsif num == 'A'
-          value = 11
-        else
-          value = 10
-        end
+        value = if num.instance_of?(Integer)
+                  num
+                elsif num == 'A'
+                  11
+                else
+                  10
+                end
         SUITS.each { |suit| deck << Card.new(suit, num, value) }
       end
       deck.shuffle!
     end
   end
-
 end
