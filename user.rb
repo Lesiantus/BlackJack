@@ -21,9 +21,11 @@ class User
   end
 
   def total
-    total = 0
-    @cards.each do |a|
-      total += a.value
+    aces_count = @cards.count { |card| card.value == 11 }
+    total = @cards.inject(0) { |sum, card| sum + card.value }
+    aces_count.times do
+      break if total <= 21
+      total -= 10
     end
     total
   end

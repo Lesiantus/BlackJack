@@ -83,23 +83,23 @@ class Main
       @dealer.win(@bank / 2)
     elsif gamer_points == 21
       @gamer.win(@bank)
-      puts "Победа! ваши карты: #{@gamer.string_view}  карты дилера: #{@dealer.string_view}"
+      puts "Победа! ваши карты: #{@gamer.string_view}, очки #{gamer_points}   карты дилера: #{@dealer.string_view}"
     elsif dealer_points == 21
       @dealer.win(@bank)
-      puts "Проигрыш, ваши карты: #{@gamer.string_view}, карты дилера: #{@dealer.string_view} очки: #{dealer_points}"
+      puts "Проигрыш, ваши карты: #{@gamer.string_view}, очки #{gamer_points}, карты дилера: #{@dealer.string_view} очки: #{dealer_points}"
     elsif gamer_points < 21 && dealer_points < 21
       if gamer_points > dealer_points
-        puts "Победа! ваши карты: #{@gamer.string_view}, карты дилера: #{@dealer.string_view}очки: #{dealer_points}"
+        puts "Победа! ваши карты: #{@gamer.string_view}, очки #{gamer_points}, карты дилера: #{@dealer.string_view}очки: #{dealer_points}"
         @gamer.win(@bank)
       elsif gamer_points < dealer_points
-        puts "Проигрыш, ваши карты: #{@gamer.string_view}, карты дилера: #{@dealer.string_view},очки: #{dealer_points}"
+        puts "Проигрыш, ваши карты: #{@gamer.string_view}, очки #{gamer_points}, карты дилера: #{@dealer.string_view},очки: #{dealer_points}"
         @dealer.win(@bank)
       end
     elsif gamer_points > 21
-      puts "Проигрыш, ваши карты: #{@gamer.string_view}, перебор. карты дилера: #{@dealer.string_view},очки: #{dealer_points}"
+      puts "Проигрыш, ваши карты: #{@gamer.string_view}, очки #{gamer_points}, перебор. карты дилера: #{@dealer.string_view},очки: #{dealer_points}"
       @dealer.win(@bank)
     elsif dealer_points > 21
-      puts "Победа! ваши карты: #{@gamer.string_view}, карты дилера: #{@dealer.string_view} очки: #{dealer_points}"
+      puts "Победа! ваши карты: #{@gamer.string_view}, очки #{gamer_points}, карты дилера: #{@dealer.string_view} очки: #{dealer_points}"
       @gamer.win(@bank)
     end
     again
